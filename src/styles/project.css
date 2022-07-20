@@ -1,0 +1,199 @@
+@font-face {
+  font-family: "Sohne";
+  src: url("https://tmpr.s3.eu-central-1.amazonaws.com/assets/type/Sohne-Buch.woff2")
+      format("woff2"),
+    url("https://tmpr.s3.eu-central-1.amazonaws.com/assets/type/Sohne-Buch.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Sohne";
+  src: url("https://tmpr.s3.eu-central-1.amazonaws.com/assets/type/Sohne-Leicht.woff2")
+      format("woff2"),
+    url("https://tmpr.s3.eu-central-1.amazonaws.com/assets/type/Sohne-Leicht.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Variables */
+
+:root {
+  /* Colors */
+  --color-main: #0000ff;
+  --color-sec: #ffffff;
+  /* Type */
+  --font-size: 12px;
+  --line-height: 1em;
+}
+
+* {
+  font-family: "Sohne";
+  font-weight: 300;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  color: var(--color-sec);
+
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 3vw;
+  text-transform: uppercase;
+}
+
+html {
+  background: blue;
+}
+/* Type */
+
+/* Layout */
+
+section {
+  min-height: 90vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  padding: 10vh 5vw;
+}
+
+section > figure {
+  aspect-ratio: 50/70;
+  height: 20vw;
+}
+
+.mid {
+  height: 40vw;
+}
+
+.large {
+  height: 50vw;
+}
+
+.xl {
+  aspect-ratio: 100/70;
+  height: 70vh;
+}
+
+.ho {
+  aspect-ratio: 100/80;
+  height: 50vw;
+}
+
+.overlay {
+  position: relative;
+  transform: translateX(-200%);
+}
+
+.overlay-s {
+  position: relative;
+  transform: translateX(-100%);
+}
+
+[data-quad] {
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+
+  overflow: visible;
+
+  font-size: 0.8em;
+
+  position: relative;
+}
+
+[data-quad]:before {
+  position: absolute;
+  content: "IMG";
+  left: 0px;
+  top: -1.5em;
+}
+
+[data-quad]:after {
+  position: absolute;
+  content: "0000";
+  right: 0px;
+  bottom: -1.5em;
+}
+
+[data-quad] > img {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ------- Grid View */
+
+.grid-w {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+
+  padding: 5vw 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  gap: 1em;
+}
+
+.grid-w > div {
+  position: relative;
+  z-index: -1;
+  display: flex;
+  gap: 1em;
+}
+
+.grid-w > div > div {
+  width: 8vw;
+  aspect-ratio: 0.7/1;
+}
+
+/* ------ UI */
+.ui {
+  position: fixed;
+  right: 0;
+  z-index: 10;
+
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.ui > button {
+  width: 10vw;
+  height: 10vw;
+}
+
+[data-ui="grid"] {
+  background: transparent;
+  border: 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2em;
+}
+
+[data-ui]:hover {
+  opacity: 0.5;
+}
+
+[data-ui="grid"] > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2em;
+}
+
+[data-ui="grid"] > div > div {
+  width: 5px;
+  aspect-ratio: 1/1;
+  background-color: var(--color-sec);
+}
